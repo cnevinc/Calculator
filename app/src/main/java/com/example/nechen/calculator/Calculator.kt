@@ -2,7 +2,7 @@ package com.example.nechen.calculator
 
 const val NOT_A_NUMBER = "Not a number"
 
-class Calculator {
+open class Calculator {
 
 
     interface Listener {
