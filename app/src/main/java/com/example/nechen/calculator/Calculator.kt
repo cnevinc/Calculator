@@ -30,6 +30,18 @@ open class Calculator {
     var state = State.START
 
 
+    /*
+    * State Machine of the calculator
+    *
+    *  Start ---(input[0-9])----> X ---(input[OPERATOR])---> OP ---(input[0-9])---> Y ---(input[OPERATOR])--->|
+    *    |                        |                          |                      |                         |
+    *   input                   input                      input                  input                       |
+    *  OPERATOR                 [0-9]                      [OPERATOR]             [0-9]                       |
+    *   stays                   stays                      stays                  stays                       |
+    *                                                        |                                                |
+    *                                                        |<----------(back to OP STATE)-------------------|
+    *
+    * */
     fun input(input: String) {
         if (input == "c") {
             x = "0"

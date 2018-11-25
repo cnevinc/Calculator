@@ -4,6 +4,7 @@
                                              xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent"
+                                             android:id="@+id/root"
                                              tools:context=".MainActivity">
 
     <TextView
@@ -12,7 +13,7 @@
             android:textSize="34sp"
             android:layout_width="0dp"
             android:layout_height="120dp"
-            android:id="@+id/textView" app:layout_constraintStart_toStartOf="parent"
+            android:id="@+id/display" app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent" tools:text="0"/>
 
@@ -22,7 +23,7 @@
             android:layout_height="0dp"
             android:textSize="34sp"
             android:id="@+id/bt_ac" app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" app:layout_constraintEnd_toStartOf="@+id/bt_sign_flip"
+            app:layout_constraintTop_toBottomOf="@+id/display" app:layout_constraintEnd_toStartOf="@+id/bt_sign_flip"
             app:layout_constraintBottom_toTopOf="@+id/bt_7"/>
 
     <Button android:textSize="34sp"
@@ -31,7 +32,7 @@
             android:layout_height="0dp"
             android:id="@+id/bt_sign_flip"
 
-            app:layout_constraintStart_toEndOf="@+id/bt_ac" app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/bt_ac" app:layout_constraintTop_toBottomOf="@+id/display"
             app:layout_constraintEnd_toStartOf="@+id/bt_mod"
             app:layout_constraintBottom_toTopOf="@+id/bt_8"/>
 
@@ -40,7 +41,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:id="@+id/bt_mod"
-            app:layout_constraintStart_toEndOf="@+id/bt_sign_flip" app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintStart_toEndOf="@+id/bt_sign_flip" app:layout_constraintTop_toBottomOf="@+id/display"
             app:layout_constraintEnd_toStartOf="@+id/bt_div"
             app:layout_constraintBottom_toTopOf="@+id/bt_9"/>
 
@@ -49,7 +50,7 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:id="@+id/bt_div"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/display"
             app:layout_constraintStart_toEndOf="@+id/bt_mod" app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/bt_mul"/>
 
