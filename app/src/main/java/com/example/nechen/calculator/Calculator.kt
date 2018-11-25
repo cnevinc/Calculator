@@ -24,8 +24,9 @@ open class Calculator {
         NONE
     }
 
-    // TODO: Use BigDecimal directly here. We we use string cause we want to save the effort for formatting the display and
-    // TODO: make input string concat easy. Also we don't want to loose the precision when we calculate the money.
+    // TODO: We we use string cause we want to save the effort for formatting the display and make input string concat easy.
+    // TODO: 1. Use BigDecimal directly here.We don't want to loose the precision when we calculate the money.
+    // TODO: 2. Use LiveData and keep the state
     var x = "0"
     var y = "0"
     var op = OPERATOR.NONE
