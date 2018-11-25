@@ -24,6 +24,8 @@ open class Calculator {
         NONE
     }
 
+    // TODO: Use BigDecimal directly here. We we use string cause we want to save the effort for formatting the display and
+    // TODO: make input string concat easy. Also we don't want to loose the precision when we calculate the money.
     var x = "0"
     var y = "0"
     var op = OPERATOR.NONE
@@ -34,16 +36,24 @@ open class Calculator {
     * State Machine of the calculator.
     * Note: only change the state in this method.
     *
+    *
+    *
+    *                             |<-----(input[=])---- \    |<----------(back to OP STATE)-------------------|
+    *                             |                      \   |                                                |
+    *                             |                       \  |                                                |
+    *                             |                        \ |                                                |
+    *                             |                         \|                                                |
     *  Start ---(input[0-9])----> X ---(input[OPERATOR])---> OP ---(input[0-9])---> Y ---(input[OPERATOR])--->|
-    *    |                        |                          |                      |                         |
-    *   input                   input                      input                  input                       |
-    *  OPERATOR                 [0-9]                      [OPERATOR]             [0-9]                       |
-    *   stays                   stays                      stays                  stays                       |
-    *                                                        |                                                |
-    *                                                        |<----------(back to OP STATE)-------------------|
+    *    |                        |                          |                      |
+    *   input                   input                      input                  input
+    *  OPERATOR                 [0-9]                      [+-*\/]                [0-9]
+    *   stays                   stays                      stays                  stays
+    *
+    *  TODO: Make input a command pattern so no need to check type here.
     *
     * */
-    fun input(input: String) {
+    fun input(inputAny: Any) {
+        val input = inputAny.toString()
         if (input == OPERATOR.NONE.toString()) {
             x = "0"
             y = "0"
@@ -83,9 +93,16 @@ open class Calculator {
             }
             State.OP -> {
                 if (input.matches(Regex("[0-9]"))) {
-                    state = State.Y
-                    y = input
-                    listener?.onResultUpdate(y)
+                    if (op == OPERATOR.EQUAL) {
+                        state = State.X
+                        x = input
+                        listener?.onResultUpdate(x)
+                    }else{
+                        state = State.Y
+                        y = input
+                        listener?.onResultUpdate(y)
+                    }
+
                 } else {
                     op = OPERATOR.valueOf(input)
                 }

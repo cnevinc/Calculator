@@ -41,12 +41,15 @@ class MainActivity : AppCompatActivity() {
                 R.id.bt_7 -> calculator.input("7")
                 R.id.bt_8 -> calculator.input("8")
                 R.id.bt_9 -> calculator.input("9")
-                R.id.bt_plus -> calculator.input(Calculator.OPERATOR.PLUS.toString())
-                R.id.bt_minus -> calculator.input(Calculator.OPERATOR.MINUS.toString())
-                R.id.bt_div -> calculator.input(Calculator.OPERATOR.DIVIDE.toString())
-                R.id.bt_mul -> calculator.input(Calculator.OPERATOR.MULTIPLY.toString())
-                R.id.bt_eq -> calculator.input(Calculator.OPERATOR.EQUAL.toString())
-                R.id.bt_ac -> calculator.input(Calculator.OPERATOR.NONE.toString())
+                R.id.bt_0 -> calculator.input("0")
+                R.id.bt_plus -> calculator.input(Calculator.OPERATOR.PLUS)
+                R.id.bt_minus -> calculator.input(Calculator.OPERATOR.MINUS)
+                R.id.bt_div -> calculator.input(Calculator.OPERATOR.DIVIDE)
+                R.id.bt_mul -> calculator.input(Calculator.OPERATOR.MULTIPLY)
+                R.id.bt_eq -> calculator.input(Calculator.OPERATOR.EQUAL)
+                R.id.bt_ac -> calculator.input(Calculator.OPERATOR.NONE)
+                R.id.bt_ac -> calculator.input(Calculator.OPERATOR.NONE)
+
 
 
             }
