@@ -31,7 +31,8 @@ open class Calculator {
 
 
     /*
-    * State Machine of the calculator
+    * State Machine of the calculator.
+    * Note: only change the state in this method.
     *
     *  Start ---(input[0-9])----> X ---(input[OPERATOR])---> OP ---(input[0-9])---> Y ---(input[OPERATOR])--->|
     *    |                        |                          |                      |                         |
@@ -43,11 +44,14 @@ open class Calculator {
     *
     * */
     fun input(input: String) {
-        if (input == "c") {
+        if (input == OPERATOR.NONE.toString()) {
             x = "0"
             y = "0"
-
+            op = OPERATOR.NONE
+            state = State.START
+            listener?.onResultUpdate(x)
         }
+
         when (state) {
 
             State.START -> {

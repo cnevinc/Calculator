@@ -46,6 +46,7 @@ class MainActivity : AppCompatActivity() {
                 R.id.bt_div -> calculator.input(Calculator.OPERATOR.DIVIDE.toString())
                 R.id.bt_mul -> calculator.input(Calculator.OPERATOR.MULTIPLY.toString())
                 R.id.bt_eq -> calculator.input(Calculator.OPERATOR.EQUAL.toString())
+                R.id.bt_ac -> calculator.input(Calculator.OPERATOR.NONE.toString())
 
 
             }
